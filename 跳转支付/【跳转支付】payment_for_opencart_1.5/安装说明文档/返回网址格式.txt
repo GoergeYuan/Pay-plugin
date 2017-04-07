@@ -1,0 +1,12 @@
+
+交易网址:
+
+test.com或是www.test.com
+
+
+返回网址格式：
+
+http://test.com/index.php?route=payment/card/callback
+
+
+请将域名换成自己网站的域名， 网站域名有www的话请加上www

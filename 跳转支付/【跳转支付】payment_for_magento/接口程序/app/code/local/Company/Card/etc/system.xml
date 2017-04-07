@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+
+<config>
+   <sections>
+        <payment>
+            <groups>
+                <card_payment module="card">
+                    <label>Credit Card Payment</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <comment>
+                                <![CDATA[<span class="notice">Enabled:选择yes启用支付模块</span>]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Title</label>
+                            <comment>
+                                <![CDATA[<span class="notice">Title:支付方式标题;显示在前台支付方式选择区域</span>]]>
+                            </comment>                            
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                         <gateway translate="label">
+                            <label>Gateway</label>
+                            <comment>
+                                <![CDATA[<span class="notice">支付网关的地址:
+                                域名/submitOrder.php;  例如： www.abc.com/submitOrder.php</span>]]>
+                            </comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </gateway>
+                         <return_url translate="label">
+                            <label>Return url</label>
+                            <comment>
+                                <![CDATA[<span class="notice">返回网址:
+                                域名/index.php/card/payment/return/;  
+                                例如： http://www.abc.com/index.php/card/payment/return/<br/>
+                              </span>]]>
+                            </comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </return_url>
+                        <merchant_no translate="label">
+                            <label>MerchantNo</label>
+                            <comment>
+                                <![CDATA[<span class="notice">MerchantNo:请填写您的商户号</span>]]>
+                            </comment>     
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </merchant_no>
+                        <md5_key translate="label">
+                            <label>MD5Key</label>
+                            <comment>
+                                <![CDATA[<span class="notice">MD5Key:请填写您商户号对应的MD5Key</span>]]>
+                            </comment>     
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </md5_key>
+                        <pay_log>
+                            <label>Pay Log</label>
+                            <comment>
+                                <![CDATA[<span class="notice">Enabled:选择yes启用支付日志</span>]]>
+                            </comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pay_log>
+						<language translate="label">
+							<label>Language</label>
+                            <comment>
+                                <![CDATA[<span class="notice">Language:支付页面语言;如果选择auto将会根据浏览器语言自动选择</span>]]>
+                            </comment>     
+							<frontend_type>select</frontend_type>
+							<source_model>card/source_language</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</language>
+						<!--rate translate="label">
+                            <label>Rate</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </rate-->		
+                        <transport translate="label">
+                            <label>Transport</label>
+                            <comment>
+                                <![CDATA[<span class="notice">Transport:  1:https  2: http(网站没有SSL时选择http)</span>]]>
+                            </comment>     
+                            <frontend_type>select</frontend_type>
+                            <source_model>card/source_transport</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </transport>
+                        <order_status translate="label">
+                            <label>New order status</label>
+                            <comment>
+                                <![CDATA[<span class="notice">new order status:  新订单的订单状态(pending)</span>]]>
+                            </comment>     
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+		                </order_status>
+                        <order_status_payment_accepted translate="label">
+                            <label>Order status when payment accepted by card</label>
+                            <comment>
+                                <![CDATA[<span class="notice">支付成功的订单的状态(processing)</span>]]>
+                            </comment>     
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+		                </order_status_payment_accepted>
+		                <order_status_payment_refused translate="label">
+                            <label>Order status when payment refused by card</label>
+                            <comment>
+                                <![CDATA[<span class="notice">支付失败的订单的状态(cancle)</span>]]>
+                            </comment>     
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status</source_model>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+		                </order_status_payment_refused>
+                        <allowspecific translate="label">
+                            <label>Payment from applicable countries</label>   
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>15</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Payment from Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>16</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <sort_order translate="label">
+                            <label>Sort order</label>
+                            <comment>
+                                <![CDATA[<span class="notice">支付方式排序</span>]]>
+                            </comment>     
+                            <frontend_type>text</frontend_type>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                    </fields>
+                </card_payment>
+            </groups>
+        </payment>
+    </sections>
+</config>

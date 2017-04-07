@@ -1,0 +1,8 @@
+将接口文件上传到服务器上对应的目录中,然后登录网站后台,进行付款模块，添加设置
+
+上传的文件有
+
+administrator(包括内容)
+card.png
+sht(包括内容)
+submitOrder.php

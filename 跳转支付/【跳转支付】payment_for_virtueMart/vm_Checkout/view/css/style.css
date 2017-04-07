@@ -1,0 +1,13 @@
+body,td,div{ border-left: medium none; border-top: medium none; margin:0 auto;padding:0;font-family:Arial; font-size:12px;}
+a:link { text-decoration: none;color:Black; }
+a:visited { text-decoration: none; color:Black;}
+a:hover { text-decoration: none; color:Black;}
+a:active { text-decoration: none;color:Black; }
+font_bak{ color:Red; font-family:Arial; font-size:12px; }
+.btn01{ width:158px; height:26px; font-size:12px; font-weight:bold; border:0px; text-align:center; font-family:arial; color:#ffffff; cursor:pointer; }
+.BottomStyle{ margin:10px 0 0 60px;float:left; }
+#spCVV{ display:none; position:absolute; background:transparent; margin-left:-250px; }
+#tdCardLeft{ display:none;}
+.tableCSS{ color:#333333; }
+.tableCSStd{ width:150px; }
+.tr1{ display:none; }

@@ -1,0 +1,134 @@
+body,td,div{ border-left: medium none; border-top: medium none; margin:0 auto;padding:0;font-family:Arial; font-size:12px;}
+a:link { text-decoration: none;color:Black; }
+a:visited { text-decoration: none; color:Black;}
+a:hover { text-decoration: none; color:Black;}
+a:active { text-decoration: none;color:Black; }
+font_bak{ color:Red; font-family:Arial; font-size:12px; }
+.btn01{ width:158px; height:26px; font-size:12px; font-weight:bold; border:0px; text-align:center; font-family:arial; color:#ffffff; cursor:pointer; }
+.BottomStyle{ margin:10px 0 0 60px;float:left; }
+#spCVV{ display:none; position:absolute; background:transparent; margin-left:-250px; }
+#tdCardLeft{ display:none;}
+.tableCSS{ color:#333333; }
+.tableCSStd{ width:150px; }
+.tr1{ display:none; }
+
+
+
+        #contexttable
+        {
+            font-family: Arial;
+            color: #4d4d4d;
+        }
+        .labfontcolor
+        {
+            color: Red;
+        }
+        input[type=text], input[type=password]{
+            padding: 2px 4px;
+        }
+        select{
+            padding: 2px 4px;
+        }
+     
+      .chekcoutBox{
+	        float: left; 
+	        border-radius: 8px;
+      	    border: 1px solid #bbbbbb; 
+      	    width: 560px;
+            box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5); 
+            height: auto; 
+            background: url(../images/bg_x.gif);
+            background-repeat: repeat-x; 
+            margin: 10px 0 0 0;
+      }
+      .checkoutBar{
+      	    position:relative;
+	        width: 520px; 
+	        height: auto; 
+	        border: 1px solid #dedede; 
+	        border-radius: 8px;
+            background: #FFFFFF; 
+            margin: 0 auto; 
+            margin-top: 20px; 
+            margin-bottom: 20px;
+      }
+      .mask {       
+            position: absolute; top: 0px; 
+            filter: alpha(opacity=60); 
+            /* background-color: #777; */    
+      	    background-color: #F3F3F3; 
+            z-index: 1; 
+            left: 0px;     
+            opacity:0.5; -moz-opacity:0.5;
+      	    display:inline-block;
+      	     
+        }
+        
+        .maskImg{
+        	position: absolute; 
+        	top: 50%;
+        	left:40%;
+        	display:none;
+        }
+        .FirstTeam_btn{
+		background: #1786c8 none repeat scroll 0 0;
+        border: 0 none;
+        border-radius: 3px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 700;
+        height: 35px;
+        line-height: 35px;
+        overflow: hidden;
+        vertical-align: middle;
+        width: 175px;
+     }
+	  .FirstTeam_btn:hover{
+        background: #1778c8 none repeat scroll 0 0;
+	 }
+	 
+	 .textRim{
+	    border: 1px solid #afafaf;
+        padding: 3px;
+        vertical-align: middle;
+	 	
+	 }
+	 .len{
+	    width: 200px;
+	 	height: 18px;
+	 	line-height: 18px;
+	 }
+	 .lenCvv{
+	    width: 100px;
+	 	height: 18px;
+	 	line-height: 18px;
+	 }
+	 .lenDate{
+	    width: 78px;
+	 }
+	 .errwaring{
+	    /* visibility:hidden; */
+	 	display:none;
+	    background-color:#ffffde;
+	    border:2px solid #ffeeaa;
+	    line-height:40px;
+	    height:40px;
+	 	position:relative;
+	 }
+     .card-header{
+	/* background-color: #3a414b; */
+    /* border-bottom: 2px solid #1f98db; */
+    height: 10px;
+     }       
+     .close-errwaring{
+    	color: #aaa;
+        cursor: pointer;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 0.5;
+        position: absolute;
+        right: 11px;
+        top: 16px;
+     } 

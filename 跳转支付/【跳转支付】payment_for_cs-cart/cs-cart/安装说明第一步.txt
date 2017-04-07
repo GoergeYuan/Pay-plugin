@@ -1,0 +1,9 @@
+将接口文件上传到网站服务器对应的目录中
+
+访问fashionpay.install.php添加支付
+
+如：   http://cscart.com/fashionpay.install.php
+
+或是直接在数据库中执行以下SQL语句
+
+INSERT INTO cscart_payment_processors (`processor_id`, `processor`, `processor_script`, `processor_template`, `admin_template`, `callback`, `type`) VALUES ('', 'fashionpay', 'fashionpay.php', 'cc_outside.tpl', 'fashionpay.tpl', 'N', 'P');

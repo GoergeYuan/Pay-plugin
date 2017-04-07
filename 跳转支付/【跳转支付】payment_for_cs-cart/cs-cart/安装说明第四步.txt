@@ -1,0 +1,10 @@
+上面所有步骤安装好后， 
+登陆速汇通商户后台-》网址管理-》添加网址
+
+交易网址：  http://域名
+返回网址：  http://域名/return.php
+
+例如：
+
+http://www.cscart.com
+http://www.cscart.com/return.php

@@ -1,0 +1,39 @@
+在文件：
+
+administrator\components\com_virtuemart\languages\common\english.php
+
+中的数组$langvars中添加以下元素:
+
+///CARD
+    'PHPSHOP_ADMIN_CFG_CARD_LOGIN' => 'Merchant ID:',
+    'PHPSHOP_ADMIN_CFG_CARD_LOGIN_EXPLAIN' => 'Your Merchant ID',
+    'PHPSHOP_ADMIN_CFG_CARD_SECRETWORD' => 'md5key:',
+    'PHPSHOP_ADMIN_CFG_CARD_SECRETWORD_EXPLAIN' => 'Your Merchant md5key.',
+    
+    'PHPSHOP_ADMIN_CFG_CARD_MONEYTYPE' => 'Currency:',
+    'PHPSHOP_ADMIN_CFG_CARD_MONEYTYPE_EXPLAIN' => 'Currency[1-USD, 2-EUR,3-CNY,4-GBP,5-HKD,6-JPY,7-AUD,8-CAD,9-NOK].',
+    'PHPSHOP_ADMIN_CFG_CARD_LANGUAGE' => 'Language:',
+    'PHPSHOP_ADMIN_CFG_CARD_LANGUAGE_EXPLAIN' => 'Payment Page Language[en-English,es-Spanish, fr-French,it-Italian,ja-Japanese,de-German,zh-Chinese, -auto]. ',
+    
+    'PHPSHOP_ADMIN_CFG_CARD_MERWEBSITE' => 'Trading site:',
+    'PHPSHOP_ADMIN_CFG_CARD_MERWEBSITE_EXPLAIN' => 'Your Trading site.',
+    'PHPSHOP_ADMIN_CFG_CARD_REMARK' => 'Remark:',
+    'PHPSHOP_ADMIN_CFG_CARD_REMARK_EXPLAIN' => 'Your remark.',
+    'PHPSHOP_ADMIN_CFG_CARD_SUBMIT_URL' => 'Transactrion  URL:',
+    'PHPSHOP_ADMIN_CFG_CARD_SUBMIT_URL_EXPLAIN' => 'Your Transaction Url: http://' . $_SERVER['HTTP_HOST'] . '/submitOrder.php',
+    
+    'PHPSHOP_ADMIN_CFG_PAYMENT_ORDERSTATUS_CARD_SUCC'=>'Pay success order status:',
+    'PHPSHOP_ADMIN_CFG_PAYMENT_ORDERSTATUS_CARD_SUCC_EXPLAIN'=>'Set your order status for CreditCard pay success.',
+    'PHPSHOP_ADMIN_CFG_PAYMENT_ORDERSTATUS_CARD_FAIL'=>'Pay fail order status:',
+    'PHPSHOP_ADMIN_CFG_PAYMENT_ORDERSTATUS_CARD_FAIL_EXPLAIN'=>'Set your order status for CreditCard pay fail.',
+    'PHPSHOP_ADMIN_CFG_PAYMENT_ORDERSTATUS_CARD_PROCESSING'=>'Pay processing order status:',
+    'PHPSHOP_ADMIN_CFG_PAYMENT_ORDERSTATUS_CARD_PROCESSING_EXPLAIN'=>'Set your order status for CreditCard pay processing.',
+    'PHPSHOP_ADMIN_CFG_PAYMENT_ORDERSTATUS_CARD_CARDDECLINED'=>'Pay declined order status:',
+    'PHPSHOP_ADMIN_CFG_PAYMENT_ORDERSTATUS_CARD_CARDDECLINED_EXPLAIN'=>'Set your order status for  CreditCard pay declined.',
+    
+    'PHPSHOP_ADMIN_CFG_CARD_MERCHANT_NOTIF' => 'Merchant Notifications',
+    'PHPSHOP_ADMIN_CFG_CARD_MERCHANT_NOTIF_EXPLAIN' => 'Should CreditCard e-mail a receipt to the store owner?',
+    'PHPSHOP_ADMIN_CFG_CARD_EMAIL'=>'CreditCard payment email:',
+    'PHPSHOP_ADMIN_CFG_CARD_EMAIL_EXPLAIN'=>'Your business email address for CreditCard payments. Also used as receiver_email.',
+    
+    ///CARD

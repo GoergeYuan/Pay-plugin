@@ -1,0 +1,144 @@
+<?php 
+/*     $sql        = "SELECT * FROM #__users WHERE user_info_id='".$db->f("user_info_id")."'";
+    $dbbt       = new ps_DB;
+    $dbbt->setQuery($sql);
+    $dbbt->query();
+    $dbbt->next_record(); */
+    /* Get ship to information */
+    //if($db->f("user_info_id") != $dbbt->f("user_info_id")){
+        $sql2   = "SELECT * FROM #__vm_user_info WHERE user_info_id='".$db->f("user_info_id")."'";
+        $dbst   = new ps_DB;
+        $dbst->setQuery($sql2);
+        $dbst->query();
+        $dbst->next_record();
+        $dbst   = $dbbt;
+/*     }else{
+        $dbst   = $dbbt;
+    } */
+    $CurrencyArray  = array('EUR'=>'2', 'USD'=>'1', 'JPY'=>'6', 'GBP'=>'4', 'AUD'=>'7', 'CAD'=>'11', 'NOK'=>'8','RMB'=>'3','DKK'=>'12','HKD'=>'5','SEK'=>'13');
+    $CurrencyCode   = strtoupper($db->f("order_currency"));
+    if(!$CurrencyCode || !isset($CurrencyArray[$CurrencyCode])){
+        exit("Currency {$CurrencyCode} is not set, Please Contact the web master");
+    }
+    $MerNo      = _CARD_LOGIN;
+    $MD5key     = _CARD_SECRETWORD;
+    /* $Currency   = _CARD_MONEYTYPE; */
+    $Currency   = $CurrencyArray[$CurrencyCode];
+    $Language   = _CARD_LANGUAGE;
+    $order_id   = $db->f("order_id");
+    $BillNo     = str_pad($order_id, 8, '0', STR_PAD_LEFT);
+    //$BillNo     = str_pad($BillNoTemp, 8, '0', STR_PAD_LEFT);
+    $tax_total  = $db->f("order_tax") + $db->f("order_shipping_tax");
+    $discount_total = $db->f("coupon_discount") + $db->f("order_discount");
+    // $total      = $db->f("order_total") + $tax_total - $discount_total;
+    $total      = $db->f("order_total") - $discount_total;
+    $Amount     = number_format($total, 2, '.', '');
+    $baseUrl    = trim(URL, '/');
+    $ReturnURL  = $baseUrl . '/index.php?option=com_virtuemart&page=checkout.card_result';
+    // $ReturnURL  = $baseUrl . '/return.php';
+    
+    $NoticeURL  = $baseUrl . '/administrator/components/com_virtuemart/card_notify.php';
+    $MerWebsite     = 'http://'.$_SERVER['HTTP_HOST'];
+    $Remark         = 'http://'.$_SERVER['HTTP_HOST'];
+    
+    $MD5src     = $MerNo . $BillNo . $Currency . $Amount . $Language . $ReturnURL . $MD5key;
+    $MD5info    = strtoupper(md5($MD5src));
+    /* order detail */
+
+    $sql3       = "SELECT * FROM #__vm_order_item WHERE order_id=".intval($order_id);
+    $dbitem     = new ps_DB;
+    //$dbitem->setQuery($sql3);
+    $dbitem->query($sql3);
+    $Products   = '';   
+    $exp        = '###';
+    $exa        = '@@@';
+    $pOne       = array();
+    while($dbitem->next_record()){
+        $pTempList  = array(
+            'name'      => $dbitem->f("order_item_name"),
+            'qty'       => $dbitem->f("product_quantity"),
+            'price'     => $dbitem->f("product_final_price") .' '. $dbitem->f("order_item_currency")
+        );
+        if($dbitem->f("product_attribute")){
+            $pTempList['attr']  = $dbitem->f("product_attribute");
+        }
+        $pOne[]         = implode($exa, $pTempList);
+    }
+    if($pOne){
+        $Products       = implode($exp, $pOne);
+    }
+    $countryCode        = $dbst->f("country");
+    if($countryCode){
+        $sql4               = "SELECT * FROM #__vm_country WHERE country_3_code='".$countryCode."'";
+        $dbCountry          = new ps_DB;
+        $dbCountry->query($sql4);
+        $dbCountry->next_record();
+        $Country            = $dbCountry->f("country_name");
+        $Country            = empty($Country) ? $countryCode : $Country;
+    }
+    $stateCode          = $dbst->f("state");
+    if($stateCode){
+        $sql5               = "SELECT * FROM #__vm_state WHERE state_2_code='".$stateCode."'";
+        $dbState            = new ps_DB;
+        $dbState->query($sql5);
+        $dbState->next_record();
+        $State              = $dbState->f("state_name");
+        $State              = empty($State) ? $stateCode : $State;
+    }
+    $form       = array(
+            'MerNo'     => $MerNo,
+            'Currency'  => $Currency,
+            'BillNo'    => $BillNo,
+            'Amount'    => $Amount,
+            'ReturnURL' => $ReturnURL,
+            'Language'  => $Language,
+            'MD5info'   => $MD5info,
+            
+            'MerWebsite'    => $MerWebsite,
+            'Remark'        => $Remark,
+            'NoticeURL'     => $NoticeURL,
+            
+            'FirstName'     => $dbst->f("first_name"),
+            'LastName'      => $dbst->f("last_name"),
+            "Address"       => $dbst->f("address_1"),
+            "City"          => $dbst->f("city"),
+            /* "State"         => $dbst->f("state"), */
+            'State'         => $State,
+            "ZipCode"       => $dbst->f("zip"),
+            /* "Country"       => $dbst->f("country"), */
+            'Country'       => $Country,
+            "Phone"         => $dbst->f("phone_1"),
+            "Email"         => $dbst->f("user_email"),
+            
+            'DeliveryFirstName' => $dbst->f("first_name"),
+            'DeliveryLastName'  => $dbst->f("last_name"),
+            'DeliveryAddress'   => $dbst->f("address_1"),
+            'DeliveryCity'      => $dbst->f("city"),
+            'DeliveryPhone'     => $dbst->f("phone_1"),
+            /* 'DeliveryState'     => $dbst->f('state'), */
+            'DeliveryState'     => $State,
+            'DeliveryZipCode'   => $dbst->f('zip'),
+            /* 'DeliveryCountry'   => $dbst->f('country'), */
+            'DeliveryCountry'   => $Country,
+            'DeliveryEmail'     => $dbst->f('user_email'),
+            'Products'          => $Products
+        );
+    $PostString     = '';
+    
+    $action         = _CARD_SUBMIT_URL;
+    foreach($form as $key=>$value){
+        $PostString .="<input type='hidden' name='{$key}' value='{$value}'/>";
+    }
+
+    $autoFormSubmit = true;
+?>
+    <form action="<?php echo $action; ?>" method="post" target="_top" name="card_payment_form" id="card_payment_form">
+        <?php echo $PostString; ?>
+        <p>Click on the Image below to pay...</p>
+        <input type="image" name="submit" src="<?php echo URL.'card.png'; ?>" border="0" alt="Make payments with visa master, it's fast and secure!" title="Pay your Order with visa master, it's fast and secure!"/>
+    </form>
+<?php if($autoFormSubmit === true): ?>
+    <script type="text/javascript">
+        document.getElementById("card_payment_form").submit();
+    </script>
+<?php endif; ?>

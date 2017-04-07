@@ -1,0 +1,1 @@
+INSERT INTO cscart_payment_processors (`processor_id`, `processor`, `processor_script`, `processor_template`, `admin_template`, `callback`, `type`) VALUES ('', 'FirstTeam', 'FirstTeam.php', 'views/orders/components/payments/FirstTeam.tpl', 'FirstTeam.tpl', 'N', 'P');
